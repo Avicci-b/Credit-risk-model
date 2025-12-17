@@ -34,3 +34,5 @@ flake8>=6.0.0
 python-dotenv>=1.0.0
 jupyter>=1.0.0
 ipykernel>=6.0.0
+# Feature Engineering Specific
+feature-engine>=1.6.0
