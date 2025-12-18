@@ -1,0 +1,15 @@
+{
+  "training_date": "2025-12-18T10:27:40.344965",
+  "dataset_info": {
+    "original_shape": [
+      95662,
+      27
+    ],
+    "features_shape": [
+      95662,
+      25
+    ],
+    "target_distribution": [
+      "0"]
+    }
+}
