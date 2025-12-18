@@ -1,0 +1,62 @@
+{
+  "clustering_method": "kmeans",
+  "n_clusters": 3,
+  "total_customers": 3742,
+  "high_risk_cluster": 2,
+  "high_risk_customers": 1,
+  "high_risk_percentage": 0.026723677177979688,
+  "cluster_statistics": [
+    {
+      "cluster": 0,
+      "size": 3729,
+      "size_percentage": 99.65259219668626,
+      "recency_days_mean": 45.134352373290426,
+      "recency_days_median": 39.0,
+      "transaction_count_mean": 24.371413247519442,
+      "transaction_count_median": 7.0,
+      "total_amount_mean": 111770.44650040225,
+      "total_amount_median": 20000.0,
+      "avg_transaction_amount_mean": 11717.12546377752,
+      "avg_transaction_amount_median": 2558.4615384615386,
+      "std_transaction_amount_mean": 9143.717428638762,
+      "std_transaction_amount_median": 3181.9805153394636
+    },
+    {
+      "cluster": 1,
+      "size": 12,
+      "size_percentage": 0.3206841261357563,
+      "recency_days_mean": 43.083333333333336,
+      "recency_days_median": 39.0,
+      "transaction_count_mean": 57.5,
+      "transaction_count_median": 36.5,
+      "total_amount_mean": 27562552.541666668,
+      "total_amount_median": 20756058.75,
+      "avg_transaction_amount_mean": 1261692.992790383,
+      "avg_transaction_amount_median": 486252.9166666666,
+      "std_transaction_amount_mean": 1400054.7451231608,
+      "std_transaction_amount_median": 1210286.7674540412
+    },
+    {
+      "cluster": 2,
+      "size": 1,
+      "size_percentage": 0.026723677177979688,
+      "recency_days_mean": 43.0,
+      "recency_days_median": 43.0,
+      "transaction_count_mean": 4091.0,
+      "transaction_count_median": 4091.0,
+      "total_amount_mean": -104900000.0,
+      "total_amount_median": -104900000.0,
+      "avg_transaction_amount_mean": -25641.652407724272,
+      "avg_transaction_amount_median": -25641.652407724272,
+      "std_transaction_amount_mean": 12952.599897891021,
+      "std_transaction_amount_median": 12952.599897891021
+    }
+  ],
+  "feature_importance": {
+    "total_amount": 1786616841811.6812,
+    "std_transaction_amount": 2061387281.2081258,
+    "avg_transaction_amount": 1664960349.501561,
+    "transaction_count": 1473.8386233715366,
+    "recency_days": 0.00488548312391391
+  }
+}
