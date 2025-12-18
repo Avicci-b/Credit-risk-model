@@ -8,6 +8,7 @@ import time
 
 BASE_URL = "http://localhost:8000"
 
+
 def test_health():
     """Test health endpoint"""
     print("Testing /health endpoint...")
@@ -23,6 +24,7 @@ def test_health():
     except Exception as e:
         print(f"❌ Health check error: {e}")
         return False
+
 
 def test_features():
     """Test features endpoint"""
@@ -40,10 +42,11 @@ def test_features():
         print(f"❌ Features endpoint error: {e}")
         return False
 
+
 def test_predict():
     """Test prediction endpoint"""
     print("\nTesting /predict endpoint...")
-    
+
     # Sample request data
     request_data = {
         "CustomerId": "test_customer_001",
@@ -71,9 +74,9 @@ def test_predict():
         "dayofweek_sin": 0.434,
         "dayofweek_cos": 0.901,
         "is_business_hours": 1,
-        "is_weekend": 0
+        "is_weekend": 0,
     }
-    
+
     try:
         response = requests.post(f"{BASE_URL}/predict", json=request_data)
         if response.status_code == 200:
@@ -91,10 +94,11 @@ def test_predict():
         print(f"❌ Prediction error: {e}")
         return False
 
+
 def test_batch_predict():
     """Test batch prediction endpoint"""
     print("\nTesting /predict/batch endpoint...")
-    
+
     request_data = {
         "customers": [
             {
@@ -123,7 +127,7 @@ def test_batch_predict():
                 "dayofweek_sin": 0.434,
                 "dayofweek_cos": 0.901,
                 "is_business_hours": 1,
-                "is_weekend": 0
+                "is_weekend": 0,
             },
             {
                 "CustomerId": "batch_customer_002",
@@ -151,11 +155,11 @@ def test_batch_predict():
                 "dayofweek_sin": 0.975,
                 "dayofweek_cos": -0.222,
                 "is_business_hours": 1,
-                "is_weekend": 0
-            }
+                "is_weekend": 0,
+            },
         ]
     }
-    
+
     try:
         response = requests.post(f"{BASE_URL}/predict/batch", json=request_data)
         if response.status_code == 200:
@@ -163,8 +167,10 @@ def test_batch_predict():
             print(f"✅ Batch prediction successful!")
             print(f"   Total customers: {data['total_customers']}")
             print(f"   Average risk: {data['avg_risk_probability']}")
-            for i, pred in enumerate(data['predictions']):
-                print(f"   Customer {i+1}: {pred['risk_probability']} ({pred['risk_category']})")
+            for i, pred in enumerate(data["predictions"]):
+                print(
+                    f"   Customer {i+1}: {pred['risk_probability']} ({pred['risk_category']})"
+                )
             return True
         else:
             print(f"❌ Batch prediction failed: {response.status_code}")
@@ -173,40 +179,37 @@ def test_batch_predict():
         print(f"❌ Batch prediction error: {e}")
         return False
 
+
 def main():
     """Run all API tests"""
     print("=" * 60)
     print("API TEST SUITE")
     print("=" * 60)
-    
+
     # Wait for API to start
     print("Waiting for API to start...")
     time.sleep(5)
-    
-    tests = [
-        test_health,
-        test_features,
-        test_predict,
-        test_batch_predict
-    ]
-    
+
+    tests = [test_health, test_features, test_predict, test_batch_predict]
+
     passed = 0
     total = len(tests)
-    
+
     for test in tests:
         if test():
             passed += 1
-    
+
     print("\n" + "=" * 60)
     print(f"TEST RESULTS: {passed}/{total} passed")
     print("=" * 60)
-    
+
     if passed == total:
         print("✅ All API tests passed!")
         return 0
     else:
         print("❌ Some API tests failed")
         return 1
+
 
 if __name__ == "__main__":
     exit(main())
